@@ -1,0 +1,39 @@
+.display {
+  position: absolute;
+  left: 42%;
+  top: 37%;
+  width: 310px;
+  margin-block: 10px;
+  font-size: 30px;
+  text-align: end;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-auto-rows: minmax(40px, auto);
+  gap: 10px;
+  position: absolute;
+  left: 42%;
+  top: 45%;
+}
+
+#divi, #mult, #sub, #add {
+  background-color: lightgray;
+}
+
+#equal {
+  background-color: rgba(128, 128, 128, 0.575);
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  border: 1px solid;
+}
