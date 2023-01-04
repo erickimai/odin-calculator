@@ -1,11 +1,32 @@
 .display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content:space-between;
   position: absolute;
   left: 42%;
-  top: 37%;
-  width: 310px;
+  top: 35%;
+  width: 300px;
   margin-block: 10px;
-  font-size: 30px;
   text-align: end;
+  border: 1px solid;
+  border-radius: 8px;
+  padding-right: 8px;
+  height: 55px;
+}
+
+.hist, .disp {
+  margin: 0;
+}
+
+.hist {
+  font-size: 15px;
+  color: rgba(2, 2, 2, 0.507);
+  font-weight: 900;
+}
+
+.disp {
+  font-size: 30px;
 }
 
 .menu {
@@ -18,7 +39,7 @@
   top: 45%;
 }
 
-#divi, #mult, #sub, #add {
+#divi, #mult, #sub, #add, #AC, #signal, #perc, #del {
   background-color: lightgray;
 }
 
