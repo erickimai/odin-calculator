@@ -4,7 +4,7 @@ Project to create Calculator using only HTML, CSS and Vanilla JS.
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/courses/foundations/lessons/calculator).
 
-🔗 **Live preview:** [here](https://artis-dev.github.io/calculator/)
+🔗 **Live preview:** [here](https://erickimai.github.io/odin-calculator/)
 
 ## Built with
 
