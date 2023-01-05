@@ -109,7 +109,7 @@ const displayFunction = function displayNumber (id) {
 					storedValue = newValue;
 				} else {
 					result = operate ('+', storedValue, newValue);
-					hist.innerHTML += disp.innerText + ' = ';
+					hist.innerHTML += disp.innerText + ' = ' + `${result}`;
 					disp.innerText = `${result}`;
 					operationOnHist = 0;
 					storedValue = result;
@@ -192,13 +192,29 @@ const displayFunction = function displayNumber (id) {
 			dec.removeAttribute('disabled');
 			break;
 		case "perc":
-			disp.innerHTML += '%';
-			break;	
+			if (disp.innerText != 'Error') {
+				operatorPressed = 1;
+				operator = '%';
+				newValue = parseFloat(disp.innerText, 10);
+				if(!operationOnHist) {
+					hist.innerHTML = disp.innerText + ' % ';
+					operationOnHist = 1;
+					storedValue = parseFloat(disp.innerText, 10);
+				} else {
+					result = operate ('%', storedValue, newValue);
+					hist.innerHTML += disp.innerText + ' = ';
+					disp.innerText = `${result}`;
+					operationOnHist = 0;
+					storedValue = result;
+				}
+				dec.removeAttribute('disabled');
+			}
+			break;
 		case "dec":
 			disp.innerHTML += '.';
 			dec.setAttribute('disabled', 'true');
 			break;
-		case "equal":
+		case 'equal':
 			if (operator != '') {
 			newValue = parseFloat(disp.innerText, 10);
 			disp.innerHTML = `${operate (operator, storedValue, newValue)}`;
@@ -208,6 +224,11 @@ const displayFunction = function displayNumber (id) {
 			operator = '';
 			dec.removeAttribute('disabled');
 			}
+			break;
+		case 'signal':
+			let temp = parseFloat(disp.innerText,10);
+			temp *= -1;
+			disp.innerText = `${temp}`;
 			break;
 	}
   }
@@ -235,15 +256,13 @@ const operate = function appliesOperatorOnTwoNumbers (operator, a, b) {
 	switch (operator) {
 		case '+':
 			return (add(a , b));
-			break;
 		case '-':
 			return (subtract(a , b));
-			break;
 		case 'x':
 			return (multiply(a , b));
-			break;
 		case '&#247;':
 			return (divide(a , b));
-			break;
+		case '%':
+			return (multiply(divide(a, 100), b));
 	}
 }
