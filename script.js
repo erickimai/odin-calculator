@@ -101,76 +101,72 @@ const displayFunction = function displayNumber (id) {
 		case "add":
 			if (disp.innerText != 'Error') {
 				operatorPressed = 1;
-				operator = '+';
 				newValue = parseFloat(disp.innerText, 10);
 				if(!operationOnHist) {
 					hist.innerText = disp.innerText + ' + ';
 					operationOnHist = 1;
 					storedValue = newValue;
+					operator = '+';
 				} else {
-					result = operate ('+', storedValue, newValue);
-					hist.innerHTML += disp.innerText + ' = ' + `${result}`;
-					disp.innerText = `${result}`;
-					operationOnHist = 0;
-					storedValue = result;
+					hist.innerHTML = `${operate (operator, storedValue, newValue)}` + ' + ';
+					storedValue = operate (operator, storedValue, newValue);
 				}
+				operator = '+';
+				disp.innerText = '0';
 				dec.removeAttribute('disabled');
 			}
 			break;
 		case "sub":
 			if (disp.innerText != 'Error') {
 				operatorPressed = 1;
-				operator = '-';
 				newValue = parseFloat(disp.innerText, 10);
 				if(!operationOnHist) {
 					hist.innerText = disp.innerText + ' - ';
 					operationOnHist = 1;
-					storedValue = parseFloat(disp.innerText, 10);
+					storedValue = newValue;
+					operator = '-';
 				} else {
-					result = operate ('-', storedValue, newValue);
-					hist.innerHTML += disp.innerText + ' = ';
-					disp.innerText = `${result}`;
-					operationOnHist = 0;
-					storedValue = result;
+					hist.innerHTML = `${operate (operator, storedValue, newValue)}` + ' - ';
+					storedValue = operate (operator, storedValue, newValue);
 				}
+				operator = '-';
+				disp.innerText = '0';
 				dec.removeAttribute('disabled');
 			}
 			break;
 		case "mult":
 			if (disp.innerText != 'Error') {
 				operatorPressed = 1;
-				operator = 'x';
 				newValue = parseFloat(disp.innerText, 10);
 				if(!operationOnHist) {
 					hist.innerText = disp.innerText + ' x ';
 					operationOnHist = 1;
-					storedValue = parseFloat(disp.innerText, 10);
+					storedValue = newValue;
+					operator = 'x';
 				} else {
-					result = operate ('x', storedValue, newValue);
-					hist.innerHTML += disp.innerText + ' = ';
-					disp.innerText = `${result}`;
-					operationOnHist = 0;
-					storedValue = result;
+					hist.innerHTML = `${operate (operator, storedValue, newValue)}` + ' x ';
+					storedValue = operate (operator, storedValue, newValue);
 				}
+				operator = 'x';
+				disp.innerText = '0';
 				dec.removeAttribute('disabled');
 			}
 			break;
 		case "divi":
 			if (disp.innerText != 'Error') {
 				operatorPressed = 1;
-				operator = '&#247;';
 				newValue = parseFloat(disp.innerText, 10);
 				if(!operationOnHist) {
-					hist.innerHTML = disp.innerText + ' &#247; ';
+					hist.innerText = disp.innerText + ' &#247; ';
 					operationOnHist = 1;
-					storedValue = parseFloat(disp.innerText, 10);
+					storedValue = newValue;
+					operator = '&#247;';
 				} else {
-					result = operate ('&#247;', storedValue, newValue);
-					hist.innerHTML += disp.innerText + ' = ';
-					disp.innerText = `${result}`;
-					operationOnHist = 0;
-					storedValue = result;
+					hist.innerHTML = `${operate (operator, storedValue, newValue)}` + ' &#247; ';
+					storedValue = operate (operator, storedValue, newValue);
 				}
+				operator = '&#247;';
+				disp.innerText = '0';
 				dec.removeAttribute('disabled');
 			}
 			break;

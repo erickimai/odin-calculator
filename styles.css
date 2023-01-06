@@ -4,6 +4,9 @@ body {
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
+  background: #202124;
+  color: #BDC1C6;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .display {
@@ -28,11 +31,12 @@ body {
   box-sizing: content-box;
   width: 100%;
   overflow: hidden;
+  color: #E8EAED;
 }
 
 .hist {
   font-size: 15px;
-  color: rgba(2, 2, 2, 0.507);
+  color: #969BA1;
   font-weight: 900;
 }
 
@@ -51,16 +55,18 @@ body {
 }
 
 #divi, #mult, #sub, #add, #AC, #signal, #perc, #del {
-  background-color: lightgray;
+  background-color: #5F6368;
 }
 
 #equal {
-  background-color: rgba(128, 128, 128, 0.575);
+  background-color: #8AB4F8;
 }
 
 button {
   border: none;
-  background-color: rgba(211, 211, 211, 0.767);
+  background-color: #3C4043;
+  border-radius: 8px;
+  color: #E8EAED;
 }
 
 button:hover {
